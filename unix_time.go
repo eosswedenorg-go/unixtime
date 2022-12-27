@@ -10,6 +10,11 @@ import (
 // Note that the value is in milliseconds.
 type Time int64
 
+func Date(year int, month time.Month, day, hour, min, sec, msec int, loc *time.Location) Time {
+	ts := time.Date(year, month, day, hour, min, sec, msec*int(time.Millisecond), time.UTC)
+	return Time(ts.UnixMilli())
+}
+
 func (ts *Time) UnmarshalJSON(b []byte) error {
 	var i int64
 

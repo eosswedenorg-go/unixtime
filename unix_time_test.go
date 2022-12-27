@@ -7,6 +7,28 @@ import (
 	"time"
 )
 
+func TestDate(t *testing.T) {
+	tests := []struct {
+		name string
+		ts   Time
+		want Time
+	}{
+		{"Epoc", Date(1970, time.January, 1, 0, 0, 0, 0, time.UTC), Time(0)},
+		{"Four Seconds after epoch", Date(1970, time.January, 1, 0, 0, 4, 0, time.UTC), Time(4000)},
+		{"Date1", Date(2014, time.January, 1, 0, 19, 22, 825, time.UTC), Time(1388535562825)},
+		{"Date2", Date(2009, time.June, 13, 16, 21, 24, 619, time.Local), Time(1244910084619)},
+		{"Date3", Date(2019, time.August, 27, 2, 8, 46, 193, time.UTC), Time(1566871726193)},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if !reflect.DeepEqual(tt.ts, tt.want) {
+				t.Errorf("%v != %v", tt.ts, tt.want)
+			}
+		})
+	}
+}
+
 func TestTime_Time(t *testing.T) {
 	tests := []struct {
 		name string
