@@ -26,7 +26,7 @@ type MyStruct struct {
 func main() {
     var s MyStruct
 
-    input := `{"timestamp": 1205647965000}`
+    input := `{"timestamp": 1205647965800}`
 
     if err := json.Unmarshal([]byte(input), &s); err != nil {
         panic(err)
