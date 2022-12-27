@@ -1,5 +1,8 @@
 # UnixTime
 
+[![Test](https://github.com/eosswedenorg-go/unixtime/actions/workflows/test.yml/badge.svg)](https://github.com/eosswedenorg-go/unixtime/actions/workflows/test.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/eosswedenorg-go/unixtime.svg)](https://pkg.go.dev/github.com/eosswedenorg-go/unixtime)
+
 Simple module to handle unix timestamp json encoding/decoding.
 
 ## Example
