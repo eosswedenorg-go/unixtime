@@ -35,7 +35,7 @@ func main() {
     // Output: Decoded: 2008-03-16 06:12:45.800 +0000 UTC
     fmt.Println("Decoded:", s.Timestamp.Time().Format("2006-01-02 15:04:05.000 -0700 MST"))
 
-    s.Timestamp.FromTime(time.Date(2014, 6, 11, 14, 3, 55, 0, time.UTC).Add(time.Millisecond * 625))
+    s.Timestamp.FromTime(time.Date(2014, 6, 11, 14, 3, 55, int(time.Millisecond) * 625, time.UTC))
 
     data, err := json.Marshal(s)
     if err != nil {
