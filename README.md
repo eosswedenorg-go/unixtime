@@ -16,7 +16,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/eosswdenorg-go/unixtime"
+    "github.com/eosswedenorg-go/unixtime"
 )
 
 type MyStruct struct {
