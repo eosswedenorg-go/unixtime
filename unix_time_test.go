@@ -37,9 +37,9 @@ func TestTime_Time(t *testing.T) {
 	}{
 		{"Epoc", Time(0), time.Date(1970, time.January, 1, 0, 0, 0, 0, time.UTC)},
 		{"Two Seconds after epoch", Time(2000), time.Date(1970, time.January, 1, 0, 0, 2, 0, time.UTC)},
-		{"Date1", Time(1644612684432), time.Date(2022, time.February, 11, 20, 51, 24, 0, time.UTC).Add(time.Millisecond * 432)},
-		{"Date2", Time(1831324037241), time.Date(2028, time.January, 12, 21, 7, 17, 0, time.UTC).Add(time.Millisecond * 241)},
-		{"Date3", Time(1272908563433), time.Date(2010, time.May, 3, 17, 42, 43, 0, time.UTC).Add(time.Millisecond * 433)},
+		{"Date1", Time(1644612684432), time.Date(2022, time.February, 11, 20, 51, 24, int(time.Millisecond)*432, time.UTC)},
+		{"Date2", Time(1831324037241), time.Date(2028, time.January, 12, 21, 7, 17, int(time.Millisecond)*241, time.UTC)},
+		{"Date3", Time(1272908563433), time.Date(2010, time.May, 3, 17, 42, 43, int(time.Millisecond)*433, time.UTC)},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -58,9 +58,9 @@ func TestTime_FromTime(t *testing.T) {
 	}{
 		{"Epoc", time.Date(1970, time.January, 1, 0, 0, 0, 0, time.UTC), Time(0)},
 		{"Two Seconds after epoch", time.Date(1970, time.January, 1, 0, 0, 2, 0, time.UTC), Time(2000)},
-		{"Date1", time.Date(2022, time.February, 11, 20, 51, 24, 0, time.UTC).Add(time.Millisecond * 432), Time(1644612684432)},
-		{"Date2", time.Date(2028, time.January, 12, 21, 7, 17, 0, time.UTC).Add(time.Millisecond * 241), Time(1831324037241)},
-		{"Date3", time.Date(2010, time.May, 3, 17, 42, 43, 0, time.UTC).Add(time.Millisecond * 433), Time(1272908563433)},
+		{"Date1", time.Date(2022, time.February, 11, 20, 51, 24, int(time.Millisecond)*432, time.UTC), Time(1644612684432)},
+		{"Date2", time.Date(2028, time.January, 12, 21, 7, 17, int(time.Millisecond)*241, time.UTC), Time(1831324037241)},
+		{"Date3", time.Date(2010, time.May, 3, 17, 42, 43, int(time.Millisecond)*433, time.UTC), Time(1272908563433)},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
